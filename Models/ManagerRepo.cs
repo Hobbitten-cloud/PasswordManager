@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PasswordManager.Models
 {
@@ -50,8 +51,15 @@ namespace PasswordManager.Models
         }
 
         // Saves the passwords to the txt file
-        private void SaveTxTFile()
+        public void SaveTxTFile(string name, string username, string password, string email)
         {
+            using (StreamWriter sw = new StreamWriter("Passwords.txt"))
+            {
+                foreach (Manager manager in manager)
+                {
+                    sw.WriteLine($"{manager.Name},{manager.Username},{manager.Password},{manager.Email}");
+                }
+            }
 
         }
 
@@ -82,8 +90,7 @@ namespace PasswordManager.Models
 
             if (!string.IsNullOrEmpty(name) 
                 && !string.IsNullOrEmpty(username) 
-                && !string.IsNullOrEmpty(password)
-                && !string.IsNullOrEmpty(email))
+                && !string.IsNullOrEmpty(password))
             {
                 result = new Manager()
                 {

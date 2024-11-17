@@ -28,9 +28,16 @@ namespace PasswordManager.ViewModels
             Email = manager.Email;
         }
 
+        // Deletes the password at the given position
         public void DeleteManager(ManagerRepo managerRepo)
         {
             managerRepo.Remove(manager.Id);
+        }
+
+        // Saves all passwords in the collection
+        public void SaveManager(ManagerRepo managerRepo)
+        {
+            managerRepo.SaveTxTFile(manager.Name,manager.Username,manager.Password,manager.Email);
         }
     }
 }

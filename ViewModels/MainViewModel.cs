@@ -28,16 +28,16 @@ namespace PasswordManager.ViewModels
         private ManagerViewModel selectedManager;
         public ManagerViewModel SelectedManager
         {
-            get 
-            { 
-                return selectedManager; 
+            get
+            {
+                return selectedManager;
             }
             set
             {
                 selectedManager = value; OnPropertyChanged("SelectedManager");
 
                 // Another method to achieve the same result as above
-                //_selectedPerson = value; OnPropertyChanged(nameof(SelectedPerson));
+                //selectedManager = value; OnPropertyChanged(nameof(SelectedManager));
             }
         }
 
@@ -56,6 +56,14 @@ namespace PasswordManager.ViewModels
                 SelectedManager.DeleteManager(managerRepo);
                 managerVM.Remove(SelectedManager);
                 SelectedManager = managerVM.LastOrDefault();
+            }
+        }
+
+        public void SaveManager()
+        {
+            if (SelectedManager != null)
+            {
+                SelectedManager.SaveManager(managerRepo);
             }
         }
 

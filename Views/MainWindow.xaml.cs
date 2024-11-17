@@ -25,6 +25,9 @@ namespace PasswordManager
 
             // Databinds the information from backend code to the design area
             DataContext = mainViewModel;
+
+            // NOTE - Has to be false and later enabled once all required fields *
+            BT_SavePassword.IsEnabled = true;
         }
 
         private void BT_NewPassword_Click(object sender, RoutedEventArgs e)
@@ -37,6 +40,11 @@ namespace PasswordManager
         {
             mainViewModel.DeleteSelectedManager();
             LB_Manager.ScrollIntoView(mainViewModel.SelectedManager);
+        }
+
+        private void BT_SavePassword_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.SaveManager();
         }
     }
 }
