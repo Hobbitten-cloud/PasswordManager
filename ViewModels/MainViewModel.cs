@@ -43,7 +43,7 @@ namespace PasswordManager.ViewModels
 
         public void AddDefaultManager()
         {
-            Manager manager = managerRepo.Add("Name", "Username", "Password", "Email");
+            Manager manager = managerRepo.Add("Specify Name", "Specify Username", "Specify Password");
             ManagerViewModel managerViewModel = new ManagerViewModel(manager);
             managerVM.Add(managerViewModel);
             SelectedManager = managerViewModel;
@@ -59,11 +59,12 @@ namespace PasswordManager.ViewModels
             }
         }
 
-        public void SaveManager()
+        public void SaveAllManagers()
         {
             if (SelectedManager != null)
             {
-                SelectedManager.SaveManager(managerRepo);
+                // Save the updated manager to the file
+                // Manager manager = managerRepo.SaveTxTFile();
             }
         }
 

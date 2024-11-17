@@ -36,8 +36,7 @@ namespace PasswordManager.Models
                         // parts[0] contains Name
                         // parts[1] contains Username
                         // parts[2] contains Password
-                        // parts[3] contains Email
-                        Add(parts[0], parts[1], (parts[2]), parts[3]);
+                        Add(parts[0], parts[1], (parts[2]));
 
                         //Read the next line
                         line = sr.ReadLine();
@@ -51,16 +50,15 @@ namespace PasswordManager.Models
         }
 
         // Saves the passwords to the txt file
-        public void SaveTxTFile(string name, string username, string password, string email)
+        public void SaveTxTFile(string name, string username, string password)
         {
             using (StreamWriter sw = new StreamWriter("Passwords.txt"))
             {
                 foreach (Manager manager in manager)
                 {
-                    sw.WriteLine($"{manager.Name},{manager.Username},{manager.Password},{manager.Email}");
+                    sw.WriteLine($"{manager.Name},{manager.Username},{manager.Password}");
                 }
             }
-
         }
 
         public Manager Get(int id)
@@ -84,7 +82,7 @@ namespace PasswordManager.Models
             return manager;
         }
 
-        public Manager Add(string name, string username, string password, string email)
+        public Manager Add(string name, string username, string password)
         {
             Manager result = null;
 
@@ -97,7 +95,6 @@ namespace PasswordManager.Models
                     Name = name,
                     Username = username,
                     Password = password,
-                    Email = email
                 };
 
                 // Add to managers list

@@ -44,7 +44,7 @@ namespace PasswordManager
 
         private void BT_SavePassword_Click(object sender, RoutedEventArgs e)
         {
-            mainViewModel.SaveManager();
+            mainViewModel.SaveAllManagers();
         }
     }
 }

@@ -16,7 +16,6 @@ namespace PasswordManager.Models
         public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Email { get; set; }
 
         // Id to identify what number a specific password has in the list
         public int Id { get; set; }
@@ -29,7 +28,7 @@ namespace PasswordManager.Models
 
         public override string ToString()
         {
-            return $"{Id}: {Name}: {Username}: {Password}: {Email}";
+            return $"{Id}: {Name}: {Username}: {Password}";
         }
     }
 }

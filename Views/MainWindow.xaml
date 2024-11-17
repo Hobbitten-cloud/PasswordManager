@@ -51,29 +51,19 @@
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Name:" Width="100"/>
                 <TextBox x:Name="TB_Name" 
-                     Text="{Binding SelectedManager.Name, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="250"/>
+                     Text="{Binding SelectedManager.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Username:" Width="100"/>
                 <TextBox x:Name="TB_Username" 
-                     Text="{Binding SelectedManager.Username, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="250"/>
+                     Text="{Binding SelectedManager.Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Password:" Width="100"/>
                 <TextBox x:Name="TB_Password" 
-                     Text="{Binding SelectedManager.Password, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="250"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Label Content="Email:" Width="100"/>
-                <TextBox x:Name="TB_Email" 
-                     Text="{Binding SelectedManager.Email, UpdateSourceTrigger=PropertyChanged}" 
-                     Width="250"/>
+                     Text="{Binding SelectedManager.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
             </StackPanel>
         </StackPanel>
 

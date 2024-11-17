@@ -16,7 +16,6 @@ namespace PasswordManager.ViewModels
         public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Email { get; set; }
 
         // Constructor for what the user will see on the view model
         public ManagerViewModel(Manager manager)
@@ -25,7 +24,6 @@ namespace PasswordManager.ViewModels
             Name = manager.Name;
             Username = manager.Username;
             Password = manager.Password;
-            Email = manager.Email;
         }
 
         // Deletes the password at the given position
@@ -34,10 +32,10 @@ namespace PasswordManager.ViewModels
             managerRepo.Remove(manager.Id);
         }
 
-        // Saves all passwords in the collection
+        // Saves all passwords
         public void SaveManager(ManagerRepo managerRepo)
         {
-            managerRepo.SaveTxTFile(manager.Name,manager.Username,manager.Password,manager.Email);
+            managerRepo.SaveTxTFile(manager.Name, manager.Username, manager.Password);
         }
     }
 }
