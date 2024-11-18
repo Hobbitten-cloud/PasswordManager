@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PasswordManager.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -22,6 +24,17 @@ namespace PasswordManager.Models
         // Reads the txt file
         private void ReadTxTFile()
         {
+            // Creates a .txt file if you dont already have one created
+            if (!File.Exists("Passwords.txt"))
+            {
+                // Create the file
+                using (StreamWriter sw = File.CreateText("Passwords.txt"))
+                {
+
+                }
+            }
+
+            // Tries to save the details to the .txt file.
             try
             {   // Open the text file using a stream reader.
                 using (StreamReader sr = new StreamReader("Passwords.txt"))
@@ -50,7 +63,7 @@ namespace PasswordManager.Models
         }
 
         // Saves the passwords to the txt file
-        public void SaveTxTFile(string name, string username, string password)
+        public void SaveTxTFile()
         {
             using (StreamWriter sw = new StreamWriter("Passwords.txt"))
             {
@@ -82,12 +95,20 @@ namespace PasswordManager.Models
             return manager;
         }
 
+        public void Update(int ID, string name, string username, string password)
+        {
+            Manager manager = Get(ID);
+            manager.Name = name;
+            manager.Username = username;
+            manager.Password = password;
+        }
+
         public Manager Add(string name, string username, string password)
         {
             Manager result = null;
 
-            if (!string.IsNullOrEmpty(name) 
-                && !string.IsNullOrEmpty(username) 
+            if (!string.IsNullOrEmpty(name)
+                && !string.IsNullOrEmpty(username)
                 && !string.IsNullOrEmpty(password))
             {
                 result = new Manager()

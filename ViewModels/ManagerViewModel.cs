@@ -32,10 +32,9 @@ namespace PasswordManager.ViewModels
             managerRepo.Remove(manager.Id);
         }
 
-        // Saves all passwords
-        public void SaveManager(ManagerRepo managerRepo)
+        public void UpdateManager(ManagerRepo managerRepo)
         {
-            managerRepo.SaveTxTFile(manager.Name, manager.Username, manager.Password);
+            managerRepo.Update(manager.Id, Name, Username, Password);
         }
     }
 }

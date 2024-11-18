@@ -63,8 +63,11 @@ namespace PasswordManager.ViewModels
         {
             if (SelectedManager != null)
             {
-                // Save the updated manager to the file
-                // Manager manager = managerRepo.SaveTxTFile();
+                foreach (ManagerViewModel mvm in managerVM)
+                {
+                    mvm.UpdateManager(managerRepo);
+                }
+                managerRepo.SaveTxTFile();
             }
         }
 

@@ -7,27 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="650">
 
+    <!-- Define Rows and Columns -->
     <Grid Margin="10">
-        <!-- Define Rows and Columns -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <!-- Title -->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            
             <!-- ListBox (scrollable) -->
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
             <!-- Fields -->
             <RowDefinition Height="Auto"/>
+            
             <!-- Buttons -->
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <!-- ListBox -->
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            
             <!-- Fields -->
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Title -->
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
            Content="Stored Passwords:" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,10"/>
 
         <!-- ListBox (scrollable) -->
