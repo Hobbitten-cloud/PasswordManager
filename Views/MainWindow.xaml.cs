@@ -38,7 +38,7 @@ namespace PasswordManager
 
         private void BT_DeletePassword_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete",
+            if (MessageBox.Show("Are you sure you want to delete this manager?",
                 "Delete manager",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
