@@ -61,14 +61,11 @@ namespace PasswordManager.ViewModels
 
         public void SaveAllManagers()
         {
-            if (SelectedManager != null)
+            foreach (ManagerViewModel mvm in managerVM)
             {
-                foreach (ManagerViewModel mvm in managerVM)
-                {
-                    mvm.UpdateManager(managerRepo);
-                }
-                managerRepo.SaveTxTFile();
+                mvm.UpdateManager(managerRepo);
             }
+            managerRepo.SaveTxTFile();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

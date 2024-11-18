@@ -38,13 +38,25 @@ namespace PasswordManager
 
         private void BT_DeletePassword_Click(object sender, RoutedEventArgs e)
         {
-            mainViewModel.DeleteSelectedManager();
-            LB_Manager.ScrollIntoView(mainViewModel.SelectedManager);
+            if (MessageBox.Show("Are you sure you want to delete",
+                "Delete manager",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                mainViewModel.DeleteSelectedManager();
+                LB_Manager.ScrollIntoView(mainViewModel.SelectedManager);
+            }
         }
 
         private void BT_SavePassword_Click(object sender, RoutedEventArgs e)
         {
-            mainViewModel.SaveAllManagers();
+            if (MessageBox.Show("Are you sure you want to save?",
+                "Save file",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                mainViewModel.SaveAllManagers();
+            }
         }
     }
 }
