@@ -46,7 +46,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" TextDecorations="OverLine, Underline" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
