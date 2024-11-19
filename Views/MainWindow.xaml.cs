@@ -28,6 +28,11 @@ namespace PasswordManager
 
             // NOTE - Has to be false and later enabled once all required fields *
             BT_SavePassword.IsEnabled = true;
+
+            // NOTE - All fields has to be disabled for input before the button "Change" Has been clicked on the list id
+            TB_Name.IsEnabled = false;
+            TB_Username.IsEnabled = false;
+            TB_Password.IsEnabled = false;
         }
 
         private void BT_NewPassword_Click(object sender, RoutedEventArgs e)
@@ -56,7 +61,44 @@ namespace PasswordManager
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 mainViewModel.SaveAllManagers();
+                TB_Name.IsEnabled = false;
+                TB_Username.IsEnabled = false;
+                TB_Password.IsEnabled = false;
             }
+        }
+
+        private void ButtonCopy_Name_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Name != null)
+            {
+                Clipboard.SetText(mainViewModel.SelectedManager.Name);
+                ButtonCopy_Name.Opacity = 50;
+            }
+        }
+
+        private void ButtonCopy_Username_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Username != null)
+            {
+                Clipboard.SetText(mainViewModel.SelectedManager.Username);
+                ButtonCopy_Username.Opacity = 50;
+            }
+        }
+
+        private void ButtonCopy_Password_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Password != null)
+            {
+                Clipboard.SetText(mainViewModel.SelectedManager.Password);
+                ButtonCopy_Password.Background = new SolidColorBrush(Colors.Blue);
+            }
+        }
+
+        private void BT_makeChange_Click(object sender, RoutedEventArgs e)
+        {
+            TB_Name.IsEnabled = true;
+            TB_Username.IsEnabled = true;
+            TB_Password.IsEnabled = true;
         }
     }
 }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="650">
+        Title="MainWindow" Height="400" Width="800">
 
     <!-- Define Rows and Columns -->
-    <Grid Margin="10">
+    <Grid Margin="10" Background="#FF196C0E">
         <Grid.RowDefinitions>
             <!-- Title -->
             <RowDefinition Height="Auto"/>
@@ -32,8 +32,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Title -->
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-           Content="Stored Passwords:" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,10"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+           Text="Stored Passwords:" FontSize="20" FontStyle="Normal" FontWeight="Bold" 
+           VerticalAlignment="Center" Margin="0,0,0,10" TextDecorations="Underline"/>
 
         <!-- ListBox (scrollable) -->
         <ListBox Grid.Row="1" Grid.Column="0" 
@@ -41,11 +42,11 @@
              ItemsSource="{Binding managerVM}" 
              SelectedItem="{Binding SelectedManager}" 
              SelectionMode="Extended" 
-             Margin="0,0,10,0">
+             Margin="0,0,10,0" Background="Gray" Foreground="Black">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Name}" TextDecorations="OverLine, Underline" FontWeight="Bold"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -54,26 +55,30 @@
         <!-- Labels and TextBoxes -->
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10,0,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Label Content="Name:" Width="100"/>
+                <Label Content="Name:" Width="100" FontWeight="Bold"/>
                 <TextBox x:Name="TB_Name" 
                      Text="{Binding SelectedManager.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
+                <Button x:Name="ButtonCopy_Name" Content="Copy" Click="ButtonCopy_Name_Click" Width="56"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Label Content="Username:" Width="100"/>
+                <Label Content="Username:" Width="100" FontWeight="Bold"/>
                 <TextBox x:Name="TB_Username" 
                      Text="{Binding SelectedManager.Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
+                <Button x:Name="ButtonCopy_Username" Content="Copy" Click="ButtonCopy_Username_Click" Width="56"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Label Content="Password:" Width="100"/>
+                <Label Content="Password:" Width="100" FontWeight="Bold"/>
                 <TextBox x:Name="TB_Password" 
                      Text="{Binding SelectedManager.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="250"/>
+                <Button x:Name="ButtonCopy_Password" Content="Copy" Click="ButtonCopy_Password_Click" Width="56"/>
             </StackPanel>
         </StackPanel>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,10,0,0">
+            <Button x:Name="BT_makeChange" Content="Change" Click="BT_makeChange_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_NewPassword" Content="New" Click="BT_NewPassword_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_DeletePassword" Content="Delete" Click="BT_DeletePassword_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_SavePassword" Content="Save" Click="BT_SavePassword_Click" Width="100" Margin="5"/>
