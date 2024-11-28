@@ -78,7 +78,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,10,0,0">
-            <Button x:Name="BT_makeChange" Content="Change" Click="BT_makeChange_Click" Width="100" Margin="5"/>
+            <Button x:Name="BT_makeChange" Content="Edit" Click="BT_makeChange_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_NewPassword" Content="New" Click="BT_NewPassword_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_DeletePassword" Content="Delete" Click="BT_DeletePassword_Click" Width="100" Margin="5"/>
             <Button x:Name="BT_SavePassword" Content="Save" Click="BT_SavePassword_Click" Width="100" Margin="5"/>
