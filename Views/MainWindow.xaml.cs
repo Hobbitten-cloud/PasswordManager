@@ -72,6 +72,7 @@ namespace PasswordManager
             if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Name != null)
             {
                 Clipboard.SetText(mainViewModel.SelectedManager.Name);
+                ButtonCopy_Name.Background = new SolidColorBrush(Colors.Azure);
                 ButtonCopy_Name.Opacity = 50;
             }
         }
@@ -81,6 +82,7 @@ namespace PasswordManager
             if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Username != null)
             {
                 Clipboard.SetText(mainViewModel.SelectedManager.Username);
+                ButtonCopy_Username.Background = new SolidColorBrush(Colors.Azure);
                 ButtonCopy_Username.Opacity = 50;
             }
         }
@@ -90,7 +92,8 @@ namespace PasswordManager
             if (mainViewModel.SelectedManager != null && mainViewModel.SelectedManager.Password != null)
             {
                 Clipboard.SetText(mainViewModel.SelectedManager.Password);
-                ButtonCopy_Password.Background = new SolidColorBrush(Colors.Blue);
+                ButtonCopy_Password.Background = new SolidColorBrush(Colors.Azure);
+                ButtonCopy_Password.Opacity = 50;
             }
         }
 
